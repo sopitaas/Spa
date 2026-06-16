@@ -1,0 +1,59 @@
+﻿@{
+    var accion = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+
+    string EsActivo(string accionEsperada) => accion == accionEsperada ? "activo" : "";
+}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Panel Administrador</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/css/admin.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/css/responsive-fixes.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+
+<body class="admin-body">
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div class="admin-sidebar-brand">
+                <img src="/images/logo.jpg" alt="Manos de Paz" />
+                <span>Panel Admin</span>
+            </div>
+
+            <nav class="admin-nav">
+                <a asp-controller="Administrador" asp-action="Panel" class="@EsActivo("Panel")">
+                    <i class="fas fa-chart-pie"></i> Panel
+                </a>
+                <a asp-controller="Administrador" asp-action="Promociones" class="@EsActivo("Promociones")">
+                    <i class="fas fa-tags"></i> Promociones
+                </a>
+            </nav>
+            <div class="admin-sidebar-footer">
+                <a asp-controller="Home" asp-action="Bienvenida">
+                    <i class="fas fa-arrow-left"></i> Volver a Bienvenida
+                </a>
+            </div>
+        </aside>
+
+        <div class="admin-content">
+            <header class="admin-topbar">
+                <h1>@ViewData["Title"]</h1>
+            </header>
+
+            <main class="admin-main">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

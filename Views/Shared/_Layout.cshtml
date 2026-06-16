@@ -1,0 +1,107 @@
+﻿@{
+    var accion = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+    var controlador = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+    var clienteNombre = Context.Session.GetString("ClienteNombre");
+    var clienteTipo = Context.Session.GetString("ClienteTipo");
+
+    string EsActivo(string ctrl) => controlador == ctrl ? "activo" : "";
+}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Manos de Paz</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/css/responsive-fixes.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+
+<body class="@ViewData["BodyClass"]">
+    <header>
+        <div class="logo">
+            <img src="/images/logo.jpg" alt="Manos de Paz" />
+        </div>
+        <nav>
+            <a asp-controller="Home" asp-action="Index" class="@EsActivo("Home")">Inicio</a>
+            <a asp-controller="Nosotros" asp-action="Index" class="@EsActivo("Nosotros")">Nosotros</a>
+            <a asp-controller="Servicios" asp-action="Index" class="@EsActivo("Servicios")">Servicios</a>
+            <a asp-controller="Promociones" asp-action="Index" class="@EsActivo("Promociones")">Promociones</a>
+            <a asp-controller="Cita" asp-action="Index" class="boton @EsActivo("Cita")">Agenda tu cita</a>
+
+            @if (clienteNombre != null)
+            {
+                <span style="color:#a65131;font-weight:600;font-size:15px;">
+                    👤 @clienteNombre
+                    @if (clienteTipo == "VIP")
+                    {
+                        <span style="background:#a65131;color:#fff;padding:2px 7px;border-radius:4px;font-size:12px;margin-left:4px;">VIP</span>
+                    }
+                </span>
+                <a asp-controller="Cliente" asp-action="Logout" style="color:#888;font-size:14px;">Cerrar sesión</a>
+            }
+            else
+            {
+                <a asp-controller="Cliente" asp-action="Login" style="color:#6d4c41;font-size:14px;">Iniciar sesión</a>
+            }
+        </nav>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div class="contenedor-footer">
+            <div class="footer-col info-empresa">
+                <div class="sublogo">
+                    <img src="/images/lfond.png" alt="Logo" />
+                </div>
+                <h3>
+                    Somos una empresa inclusiva de masajistas profesionales orientados a
+                    brindar un excelente servicio de masajes terapéuticos.
+                </h3>
+                <p><strong>Horario de atención:</strong></p>
+                <p>Lun. a sáb. de 7:00 am a 21:00 pm</p>
+                <p>Dom. y feriados: 9:00 am a 19:00 pm</p>
+
+                <div class="redes-sociales">
+                    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col contacto-mapa">
+                <p>
+                    <strong>Teléfonos:</strong><br />Reservas 01 3090095 – 999 985 050 |
+                    Miraflores
+                </p>
+                <p>
+                    <strong>Dirección:</strong><br />📍Av. Angamos Oeste 840 - Miraflores
+                </p>
+                <p><strong>E-mail:</strong><br />m.pazspa@gmail.com</p>
+                <div class="mapa">
+                    <img src="/images/mapa.png" alt="Mapa ubicación" />
+                </div>
+            </div>
+
+            <div class="footer-col form-contacto">
+                <h3>¿Tienes una consulta? Escríbenos</h3>
+                <form>
+                    <input type="text" placeholder="Nombre" required />
+                    <input type="email" placeholder="Correo" required />
+                    <textarea placeholder="Escribe tu mensaje..." required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

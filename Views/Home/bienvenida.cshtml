@@ -1,0 +1,154 @@
+﻿@{
+    ViewData["Title"] = "Bienvenida";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bienvenida - Manos de Paz</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+            * { box-sizing: border-box; margin: 0; padding: 0; }
+
+            .bienvenida-page {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: url('/images/bienvenida1.png') no-repeat center center fixed;
+                background-size: cover;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .bienvenida-overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.35);
+            }
+
+            .bienvenida-card {
+                position: relative;
+                z-index: 1;
+                background: rgba(255,255,255,0.93);
+                border-radius: 20px;
+                padding: 50px 60px;
+                text-align: center;
+                box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+                max-width: 480px;
+                width: 90%;
+            }
+
+            .bienvenida-card img {
+                width: 110px;
+                margin-bottom: 20px;
+            }
+
+            .bienvenida-card h1 {
+                font-size: 1.7rem;
+                color: #4e342e;
+                margin-bottom: 8px;
+                line-height: 1.3;
+            }
+
+            .bienvenida-card p {
+                font-size: 1rem;
+                color: #6d4c41;
+                margin-bottom: 35px;
+            }
+
+            .bienvenida-botones {
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .btn-bienvenida {
+                display: block;
+                padding: 14px 20px;
+                border-radius: 10px;
+                font-size: 1rem;
+                font-weight: 700;
+                letter-spacing: 1px;
+                cursor: pointer;
+                border: none;
+                text-decoration: none;
+                transition: background-color 0.2s ease, transform 0.1s ease;
+            }
+
+            .btn-bienvenida:active { transform: scale(0.98); }
+
+            .btn-admin {
+                background-color: #4e342e;
+                color: #fff;
+            }
+
+            .btn-admin:hover { background-color: #3e2723; color: #fff; }
+
+            .btn-usuario {
+                background-color: #a65131;
+                color: #fff;
+            }
+
+            .btn-usuario:hover { background-color: #7c3417; color: #fff; }
+
+            .btn-login-cliente {
+                background-color: transparent;
+                color: #a65131;
+                border: 2px solid #a65131 !important;
+                font-size: 0.9rem;
+                padding: 11px 20px;
+            }
+
+            .btn-login-cliente:hover {
+                background-color: #fff0e8;
+                color: #7c3417;
+            }
+
+            .bienvenida-separador {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: #bbb;
+                font-size: 0.85rem;
+                margin: 4px 0;
+            }
+
+            .bienvenida-separador::before,
+            .bienvenida-separador::after {
+                content: '';
+                flex: 1;
+                height: 1px;
+                background: #ddd;
+            }
+    </style>
+</head>
+<body>
+    <div class="bienvenida-page">
+        <div class="bienvenida-overlay"></div>
+
+        <div class="bienvenida-card">
+            <img src="/images/logo.jpg" alt="Manos de Paz" />
+            <h1>Bienvenidos al Spa<br>"Manos de Paz"</h1>
+            <p>¿Cómo deseas continuar?</p>
+
+            <div class="bienvenida-botones">
+                <a href="/Administrador/Login" class="btn-bienvenida btn-admin">
+                    ADMINISTRADOR
+                </a>
+
+                <a href="@Url.Action("Index", "Home")" class="btn-bienvenida btn-usuario">
+                    INGRESAR COMO INVITADO
+                </a>
+
+                <div class="bienvenida-separador">o si tienes cuenta</div>
+
+                <a href="@Url.Action("Login", "Cliente")" class="btn-bienvenida btn-login-cliente">
+                    INICIAR SESIÓN / REGISTRARSE
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

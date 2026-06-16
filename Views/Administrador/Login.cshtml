@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Iniciar sesión";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Manos de Paz</title>
+    <link rel="stylesheet" href="/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/css/admin.css" asp-append-version="true" />
+</head>
+
+<body class="admin-login-body">
+    <div class="admin-login-box">
+        <img src="/images/logo.jpg" alt="Manos de Paz" />
+        <h2>Panel Administrador</h2>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="admin-login-error">@ViewBag.Error</div>
+        }
+
+        <form asp-action="Login" method="post" class="admin-form" style="padding:0;box-shadow:none;text-align:left;">
+            <div class="admin-form-group">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" name="usuario" required />
+            </div>
+
+            <div class="admin-form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required />
+            </div>
+
+            <button type="submit" class="admin-btn admin-btn-primary" style="width:100%;margin-bottom:12px;">Ingresar</button>
+        </form>
+
+        <p style="margin-top:10px;">
+            <a asp-controller="Home" asp-action="Bienvenida" style="font-size:0.85rem;color:#999;">
+                ← Volver a Bienvenida
+            </a>
+        </p>
+    </div>
+</body>
+
+</html>

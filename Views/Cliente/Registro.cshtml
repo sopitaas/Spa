@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Crear cuenta";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear cuenta - Manos de Paz</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/responsive-fixes.css" />
+</head>
+<body class="admin-login-body">
+    <div class="admin-login-box" style="max-width:420px;">
+        <img src="/images/logo.jpg" alt="Manos de Paz" />
+        <h2>Crear cuenta</h2>
+        <p style="color:#8d6e63;margin-bottom:20px;font-size:0.95rem;">
+            Regístrate y obtén descuentos VIP en todos nuestros servicios
+        </p>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="admin-login-error">@ViewBag.Error</div>
+        }
+
+        <form asp-action="Registro" method="post" class="admin-form" style="padding:0;box-shadow:none;text-align:left;">
+            @Html.AntiForgeryToken()
+
+            <div class="admin-form-group">
+                <label for="dni">DNI</label>
+                <input type="text" id="dni" name="dni" maxlength="8" pattern="\d{8}"
+                       placeholder="8 dígitos" required />
+            </div>
+
+            <div class="registro-grid">
+                <div class="admin-form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required />
+                </div>
+                <div class="admin-form-group">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" required />
+                </div>
+            </div>
+
+            <div class="admin-form-group">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" required />
+            </div>
+
+            <div class="admin-form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" minlength="6" required />
+                <small style="color:#8d6e63;">Mínimo 6 caracteres</small>
+            </div>
+
+            <div style="background:#fff8f0;border:1px solid #f0dcc8;border-radius:8px;padding:12px;margin-bottom:16px;font-size:0.88rem;color:#6d4c41;">
+                🎁 Al registrarte obtienes automáticamente el plan <strong>VIP</strong> con <strong>15% de descuento</strong> en todas tus citas.
+            </div>
+
+            <button type="submit" class="admin-btn admin-btn-primary" style="width:100%;margin-bottom:12px;">
+                Crear cuenta
+            </button>
+        </form>
+
+        <p style="font-size:0.9rem;color:#6d4c41;">
+            ¿Ya tienes cuenta?
+            <a asp-controller="Cliente" asp-action="Login" style="color:#a65131;font-weight:600;">
+                Inicia sesión
+            </a>
+        </p>
+
+        <p style="margin-top:10px;">
+            <a asp-controller="Home" asp-action="Bienvenida" style="font-size:0.85rem;color:#999;">
+                ← Volver a Bienvenida
+            </a>
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+﻿@{
+    ViewData["Title"] = "Cita";
+}
+<section class="contacto-cita">
+    <h1 class="titulo">AGENDA TU CITA</h1>
+
+    <div class="cita-container">
+        <div class="cita-imagen">
+            <img src="/images/cita.png" alt="Mujer relajándose en spa">
+        </div>
+
+        <div class="cita-formulario">
+            <h2>SEPARA TU CITA</h2>
+
+            <form asp-action="Crear"
+                  method="post"
+                  id="formCita"
+                  class="form-cita">
+                <!-- Campo DNI solo en su propia fila -->
+                <div class="form-group">
+                    <label for="dni">DNI</label>
+                    <input type="text" id="dni" name="dni" maxlength="8" pattern="\d{8}" required>
+                </div>
+
+                <!-- Nombre y Apellido en una misma fila -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hora">Hora</label>
+                    <input type="time" id="hora" name="hora" min="10:00" max="21:00" required>
+                    <small id="ayudaHora" style="color:#8B4513;">Horario de atención: 10:00 am - 9:00 pm</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="servicio">Servicio</label>
+                    <select id="servicio" name="servicio" required>
+                        <option value="">Tipo Servicio</option>
+                        <option value="masaje-relajante">Masaje Relajante</option>
+                        <option value="masaje-piedras-calientes">Masaje de piedras calientes</option>
+                        <option value="masaje-descontracturante">Masaje descontracturante</option>
+                        <option value="facial-express">Facial express</option>
+                        <option value="facial-profundo">Facial profundo</option>
+                        <option value="facial-rejuvenecedor">Facial rejuvenecedor</option>
+                        <option value="camara-vapor">Cámara a vapor</option>
+                        <option value="camara-seca">Cámara seca</option>
+                        <option value="tina-hidromasaje">Tina de hidromasajes</option>
+                        <option value="promo-mes">Promoción del mes</option>
+                        <option value="promo-cumple">Promoción de cumpleaños</option>
+                        <option value="promo-ritual-relax">Promoción ritual clásico</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="duracion">Duración</label>
+                    <select id="duracion" name="duracion" required>
+                        <option value="">Selecciona una duración</option>
+                    </select>
+                </div>
+                @Html.AntiForgeryToken()
+                <!-- Después de la selección de duración -->
+                <div id="campoPersonas" style="display:none;">
+                    <label for="personas">¿Cuántas personas?</label>
+                    <input type="number" id="personas" name="cantidadPersonas" min="1" value="1" />
+                </div>
+
+                <p id="precioFinal" style="font-weight: bold; margin-top: 10px;"></p>
+                <input type="hidden" id="precioInput" name="Precio" value="0" />
+
+
+                <button type="submit" class="btn-agendar">Agendar</button>
+            </form>
+        </div>
+
+        <div class="decoracion-floral">
+            <!-- Decoración floral se agregará con CSS -->
+        </div>
+    </div>
+</section>
+<!-- Modal de confirmación de cita -->
+<div id="modalCita" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" id="cerrarModal">&times;</span>
+        <h2>Tu cita ha sido registrada</h2>
+        <p id="resumenCita"></p>
+    </div>
+</div>

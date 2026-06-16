@@ -1,0 +1,322 @@
+﻿/* =====================================================
+   responsive-fixes.css
+   Correcciones de layout responsivo para Manos de Paz
+   ===================================================== */
+
+/* ── Reset base de desbordamiento ───────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+header {
+    padding: 12px 20px;
+    gap: 10px;
+}
+
+    header .logo img {
+        width: 200px;
+    }
+
+/* ── Nav ─────────────────────────────────────────────── */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 20px;
+    padding: 8px 16px;
+    width: 100%;
+}
+
+    nav a {
+        font-size: 16px;
+        white-space: nowrap;
+    }
+
+    nav .boton {
+        padding: 6px 14px;
+    }
+
+/* ── Galería ─────────────────────────────────────────── */
+.galeria {
+    overflow: hidden;
+}
+
+    .galeria img {
+        flex-shrink: 0;
+    }
+
+/* ── Hero inicio ─────────────────────────────────────── */
+.hero-inicio {
+    background: linear-gradient(135deg, #fff9ef 0%, #f5efe6 100%);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero-contenido {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+    .hero-contenido h1 {
+        font-size: 2.4rem;
+        color: #4e342e;
+        margin-bottom: 16px;
+        line-height: 1.2;
+    }
+
+    .hero-contenido p {
+        font-size: 1.1rem;
+        color: #6d4c41;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+
+.hero-botones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+}
+
+/* ── Contenedores generales ──────────────────────────── */
+.contenido-bienvenida,
+.cita-container,
+.promociones,
+.clientes,
+.contenedor-cajas,
+.contenedor-footer {
+    max-width: 100%;
+}
+
+/* ── Formulario de registro (Crear cuenta) ───────────── */
+.registro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* ── Footer ─────────────────────────────────────────── */
+.footer {
+    padding: 30px 20px;
+}
+
+.contenedor-footer {
+    gap: 30px;
+}
+
+.footer-col {
+    min-width: 240px;
+}
+
+/* ── Sección cita ────────────────────────────────────── */
+.cita-container {
+    padding: 0 10px;
+}
+
+/* ── Sesión en nav ───────────────────────────────────── */
+.nav-sesion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* =====================================================
+   BREAKPOINT: tablets y móviles (≤ 768px)
+   ===================================================== */
+@media (max-width: 768px) {
+
+    /* Header */
+    header {
+        padding: 10px 16px;
+    }
+
+        header .logo img {
+            width: 150px;
+        }
+
+    /* Nav: columna centrada */
+    nav {
+        flex-direction: column;
+        gap: 6px;
+        padding: 10px 16px;
+    }
+
+        nav a {
+            font-size: 15px;
+            text-align: center;
+            width: 100%;
+        }
+
+        nav .boton {
+            display: inline-block;
+            width: auto;
+            padding: 8px 20px;
+        }
+
+    /* Hero */
+    .hero-contenido h1 {
+        font-size: 1.7rem;
+    }
+
+    .hero-contenido p {
+        font-size: 1rem;
+    }
+
+    /* Galería */
+    .galeria {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+        .galeria img {
+            width: 80vw;
+            height: 220px;
+        }
+
+    /* Bienvenida index */
+    .contenido-bienvenida {
+        flex-direction: column;
+    }
+
+    .columna-izquierda,
+    .columna-derecha {
+        flex: 1 1 100%;
+    }
+
+    /* Promociones */
+    .promociones {
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+        .promociones .izquierda,
+        .promociones .derecha {
+            max-width: 100%;
+        }
+
+    /* Cajas de servicios */
+    .contenedor-cajas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .caja-servicio {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    /* Cita */
+    .cita-container {
+        grid-template-columns: 1fr;
+    }
+
+    .cita-imagen {
+        display: none; /* ocultar imagen circular en móvil */
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* Registro grid nombre/apellido */
+    .registro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Testimonios */
+    .clientes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cliente {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Footer */
+    .contenedor-footer {
+        flex-direction: column;
+    }
+
+    .footer-col {
+        min-width: unset;
+        width: 100%;
+    }
+
+    /* Nosotros */
+    .contenedor-nosotros {
+        flex-direction: column;
+    }
+
+    .columna.imagen {
+        justify-content: flex-start;
+    }
+
+    .img-redonda {
+        width: 200px;
+        height: 210px;
+    }
+
+    /* Expertas galería */
+    .expertas-galeria {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Promo cards */
+    .promociones-container {
+        grid-template-columns: 1fr;
+        padding: 30px 16px;
+    }
+
+    /* Sesión nav */
+    .nav-sesion {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
+
+/* =====================================================
+   BREAKPOINT: móviles pequeños (≤ 480px)
+   ===================================================== */
+@media (max-width: 480px) {
+
+    .hero-contenido h1 {
+        font-size: 1.4rem;
+    }
+
+    .bienvenida-panel h1 {
+        font-size: 1.8rem;
+    }
+
+    .bienvenida-panel p {
+        font-size: 1.3rem;
+    }
+
+    header .logo img {
+        width: 120px;
+    }
+
+    .cita-formulario {
+        padding: 24px 16px;
+    }
+
+    .admin-login-box {
+        padding: 30px 24px;
+    }
+
+    .admin-cards {
+        flex-direction: column;
+    }
+}

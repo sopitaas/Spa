@@ -1,0 +1,132 @@
+﻿@model List<Spa.Models.Cita>
+
+@{
+    ViewData["Title"] = "Panel de Administración";
+    Layout = "_AdminLayout";
+}
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="admin-mensaje-exito">@TempData["Mensaje"]</div>
+}
+
+<div class="admin-cards">
+    <div class="admin-card">
+        <h3>Clientes</h3>
+        <p class="valor">@ViewBag.TotalClientes</p>
+    </div>
+    <div class="admin-card">
+        <h3>Citas</h3>
+        <p class="valor">@ViewBag.TotalCitas</p>
+    </div>
+    <div class="admin-card">
+        <h3>Promociones</h3>
+        <p class="valor">@ViewBag.TotalPromociones</p>
+    </div>
+    <div class="admin-card">
+        <h3>Servicios</h3>
+        <p class="valor">@ViewBag.TotalServicios</p>
+    </div>
+</div>
+
+<!-- ══ CITAS ══════════════════════════════════════════ -->
+<h2 style="margin:30px 0 12px;color:#4e342e;">Citas registradas</h2>
+
+<div class="admin-tabla-contenedor">
+    <table class="admin-tabla">
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Servicio</th>
+                <th>Fecha</th>
+                <th>Personas</th>
+                <th>Total</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count == 0)
+            {
+                <tr>
+                    <td colspan="6" class="admin-sin-datos">No hay citas registradas.</td>
+                </tr>
+            }
+            @foreach (var cita in Model)
+            {
+                <tr>
+                    <td>@cita.Cliente.Nombre @cita.Cliente.Apellido</td>
+                    <td>@cita.Servicio.Nombre</td>
+                    <td>@cita.FechaHora.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@cita.CantidadPersonas</td>
+                    <td>S/ @cita.TotalFinal.ToString("0.00")</td>
+                    <td>
+                        <form asp-action="EliminarCita" asp-route-id="@cita.Id" method="post" style="display:inline;">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="admin-btn admin-btn-danger admin-btn-sm"
+                                    onclick="return confirm('¿Eliminar esta cita?');">
+                                Eliminar
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- ══ CLIENTES ═══════════════════════════════════════ -->
+<h2 style="margin:40px 0 12px;color:#4e342e;">Clientes registrados</h2>
+
+<div class="admin-tabla-contenedor">
+    <table class="admin-tabla">
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Tipo</th>
+                <th>Correo</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewBag.Clientes == null || ((List<Spa.Models.Cliente>)ViewBag.Clientes).Count == 0)
+            {
+                <tr>
+                    <td colspan="6" class="admin-sin-datos">No hay clientes registrados.</td>
+                </tr>
+            }
+            else
+            {
+                foreach (var cliente in (List<Spa.Models.Cliente>)ViewBag.Clientes)
+                {
+                    <tr>
+                        <td>@cliente.Dni</td>
+                        <td>@cliente.Nombre</td>
+                        <td>@cliente.Apellido</td>
+                        <td>
+                            @if (cliente.TipoCliente == "VIP")
+                            {
+                                <span style="background:#a65131;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;">VIP</span>
+                            }
+                            else
+                            {
+                                <span>Regular</span>
+                            }
+                        </td>
+                        <td>@(cliente.Correo ?? "—")</td>
+                        <td>
+                            <form asp-action="EliminarCliente" asp-route-id="@cliente.Id" method="post" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="admin-btn admin-btn-danger admin-btn-sm"
+                                        onclick="return confirm('¿Eliminar este cliente? También se eliminarán sus citas.');">
+                                    Eliminar
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

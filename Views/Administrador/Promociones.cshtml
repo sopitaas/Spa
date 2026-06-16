@@ -1,0 +1,80 @@
+﻿@model List<Spa.Models.Promocion>
+
+@{
+    ViewData["Title"] = "Gestión de Promociones";
+    Layout = "_AdminLayout";
+}
+
+<a asp-action="CrearPromocion" class="admin-btn admin-btn-success" style="margin-bottom:20px;display:inline-block;">
+    <i class="fas fa-plus"></i> Nueva Promoción
+</a>
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="admin-mensaje-exito">@TempData["Mensaje"]</div>
+}
+
+<div class="admin-tabla-contenedor">
+    <table class="admin-tabla">
+        <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count == 0)
+            {
+                <tr>
+                    <td colspan="6" class="admin-sin-datos">No hay promociones registradas.</td>
+                </tr>
+            }
+
+            @foreach (var promo in Model)
+            {
+                <tr>
+                    <td>
+                        @if (!string.IsNullOrEmpty(promo.Imagen))
+                        {
+                            <img src="~/images/@promo.Imagen" alt="@promo.Nombre" style="width:70px;height:55px;object-fit:cover;" />
+                        }
+                        else
+                        {
+                            <span>Sin imagen</span>
+                        }
+                    </td>
+                    <td>@promo.Nombre</td>
+                    <td>@promo.Descripcion</td>
+                    <td>S/ @promo.Precio.ToString("0.00")</td>
+                    <td>
+                        @if (promo.Activa)
+                        {
+                            <span class="estado-activa">Activa</span>
+                        }
+                        else
+                        {
+                            <span class="estado-inactiva">Inactiva</span>
+                        }
+                    </td>
+                    <td>
+                        <div class="admin-acciones">
+                            <a asp-action="EditarPromocion" asp-route-id="@promo.Id" class="admin-btn admin-btn-primary admin-btn-sm">Editar</a>
+
+                            <form asp-action="EliminarPromocion" asp-route-id="@promo.Id" method="post" style="display:inline;">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="admin-btn admin-btn-danger admin-btn-sm"
+                                        onclick="return confirm('¿Está seguro de eliminar esta promoción?');">
+                                    Eliminar
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
