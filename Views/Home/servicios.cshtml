@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>Servicios - Manos de Paz</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/images/logo.jpg" alt="Manos de Paz" />
+        </div>
+        <nav>
+            <a asp-controller="Home" asp-action="Index">Inicio</a>
+            <a asp-controller="Nosotros" asp-action="Index">Nosotros</a>
+            <a asp-controller="Servicios" asp-action="Index" class="activo">Servicios</a>
+            <a asp-controller="Promociones" asp-action="Index">Promociones</a>
+            <a asp-controller="Cita" asp-action="Index" class="boton">Agenda tu cita</a>
+        </nav>
+    </header>
+    <section class="servicios">
+        <h2 class="titulo">SERVICIOS</h2>
+        <h3 class="subtitulo">MASAJES</h3>
+        <p class="descripcion-servicios">
+            Descubre cómo un buen masaje puede transformar tu bienestar. Libérate
+            del estrés, renueva tu energía y disfruta de una experiencia de alivio y
+            equilibrio total.
+        </p>
+
+        <div class="contenedor-cajas">
+            <!-- Caja 1 -->
+            <div class="caja-servicio">
+                <img src="/images/masaje1.jpg" alt="Masaje relajante" />
+                <h4>Masaje relajante</h4>
+                <p>
+                    Una técnica de manipulaciones suaves y rítmicas que estimula la
+                    circulación sanguínea y potencia el transporte de oxígeno en tu
+                    cuerpo. Vive nuevas sensaciones, libera endorfinas, calma tu sistema
+                    nervioso y reduce el estrés de forma natural.
+                </p>
+                <ul>
+                    <li><i class="fas fa-clock"></i> 30 min - S/ 50</li>
+                    <li><i class="fas fa-clock"></i> 60 min - S/ 90</li>
+                </ul>
+                <a asp-controller="Cita" asp-action="Index" asp-route-servicio="masaje-relajante" class="boton-servicio">Quiero este masaje</a>
+            </div>
+
+            <!-- Caja 2 -->
+            <div class="caja-servicio">
+                <img src="/images/masaje2.jpg" alt="Masaje de piedras calientes" />
+                <h4>Masaje de piedras calientes</h4>
+                <p>
+                    Aplicamos el poder del calor de piedras volcánicas, que penetran
+                    profundamente en el cuerpo para relajar los músculos y equilibrar la
+                    energía. Esta experiencia se enriquece con aceites andinos naturales
+                    de muña, coca y maca, potenciando la sensación de bienestar, armonía
+                    y renovación total.
+                </p>
+                <ul>
+                    <li><i class="fas fa-clock"></i> 30 min - S/ 65</li>
+                    <li><i class="fas fa-clock"></i> 60 min - S/ 95</li>
+                </ul>
+                <a asp-controller="Cita" asp-action="Index" asp-route-servicio="masaje-piedras-calientes" class="boton-servicio">Quiero este masaje</a>
+            </div>
+
+            <!-- Caja 3 -->
+            <div class="caja-servicio">
+                <img src="/images/masaje3.png" alt="Masaje descontracturante" />
+                <h4>Masaje descontracturante</h4>
+                <p>
+                    Este masaje se enfoca en los músculos profundos, así como en
+                    tendones y ligamentos, especialmente en la zona del tren superior.
+                    Ideal para aliviar tensiones acumuladas, reducir el dolor muscular
+                    provocado por el estrés o la actividad física intensa, y promover
+                    una recuperación más rápida y efectiva.
+                </p>
+                <ul>
+                    <li><i class="fas fa-clock"></i> 30 min - S/ 60</li>
+                    <li><i class="fas fa-clock"></i> 60 min - S/ 80</li>
+                </ul>
+                <a asp-controller="Cita" asp-action="Index" asp-route-servicio="masaje-descontracturante" class="boton-servicio">Quiero este masaje</a>
+            </div>
+        </div>
+    </section>
+    <section class="servicios">
+        <h3 class="subtitulo">Tratamientos Faciales</h3>
+        <p class="descripcion-servicios">
+            Descubre nuestros tratamientos de exfoliación y envoltura corporal con café,
+            menta y chocolate. Ingredientes naturales que hidratan, nutren y regeneran tu piel, dejándola suave y
+            luminosa desde la primera sesión.
+        </p>
+        <div class="contenedor-cajas">
+            <!-- Facial Express -->
+            <div class="caja-servicio">
+                <img src="/images/tratamiento1.png" alt="Facial express">
+                <h4>Facial express</h4>
+                <ul class="lista-tratamiento">
+                    <li><i class="fas fa-check-circle"></i> Limpieza con leche limpiadora</li>
+                    <li><i class="fas fa-check-circle"></i> Exfoliación</li>
+                    <li><i class="fas fa-check-circle"></i> Tonificación</li>
+                    <li><i class="fas fa-check-circle"></i> Hidratación</li>
+                </ul>
+                <ul class="precios-servicio">
+                    <li>Individual - S/ 89</li>
+                    <li>Para dos - S/ 158</li>
+                </ul>
+                <a asp-controller="Cita" asp-action="Index" asp-route-servicio="facial-express" class="boton-servicio">Quiero este tratamiento</a>
+            </div>
+
+            <!-- Facial Profundo -->
+            <div class="caja-servicio">
+                <img src="/images/tratamiento2.png" alt="Facial profundo">
+                <h4>Facial profundo</h4>
+                <ul class="lista-tratamiento">
+                    <li><i class="fas fa-check-circle"></i> Limpieza con leche limpiadora</li>
+                    <li><i class="fas fa-check-circle"></i> Tonificación</li>
+                    <li><i class="fas fa-check-circle"></i> Exfoliación profunda</li>
+                    <li><i class="fas fa-check-circle"></i> Extracción de puntos negros e impurezas</li>
+                    <li><i class="fas fa-check-circle"></i> Mascarilla de colágeno</li>
+                    <li><i class="fas fa-check-circle"></i> Hidratación</li>
+                </ul>
+                <ul>
+                    <li>Individual - S/ 90</li>
+                    <li> Para dos - S/ 160</li>
+                </ul>
+                <a asp-controller="Cita" asp-action="Index" asp-route-servicio="facial-profundo" class="boton-servicio">Quiero este tratamiento</a>
+            </div>
+
+            <!-- Facial Rejuvenecedor -->
+            <div class="caja-servicio">
+                <img src="/images/tratamiento3.png" alt="Facial rejuvenecedor">
+                <h4>Facial rejuvenecedor</h4>
+                <ul class="lista-tratamiento">
+                    <li><i class="fas fa-check-circle"></i> Limpieza con leche limpiadora</li>
+                    <li><i class="fas fa-check-circle"></i> Exfoliación profunda</li>
+                    <li><i class="fas fa-check-circle"></i> Vaporización y tonificación</li>
+                    <li><i class="fas fa-check-circle"></i> Extracción de puntos negros e impurezas</li>
+                    <li><i class="fas fa-check-circle"></i> Punta de diamante + luz led</li>
+                    <li><i class="fas fa-check-circle"></i> Mascarilla de colágeno + sérum</li>
+                    <li><i class="fas fa-check-circle"></i> Hidratación + fotoprotector</li>
+                </ul>
+                <ul>
+                    <li>Individual - S/ 190</li>
+                    <li> Para dos - S/ 360</li>
+                </ul>
+                <a asp-controller="Cita" asp-action="Index" asp-route-servicio="facial-rejuvenecedor" class="boton-servicio">Quiero este tratamiento</a>
+
+            </div>
+        </div>
+    </section>
+    <section class="servicios">
+        <h3 class="subtitulo">CIRCUITOS DE AGUA</h3>
+        <p class="descripcion-servicios">
+            Conoce todos los beneficios de nuestros circuitos de agua y sumérgete en un baño de hidromasajes para
+            renovar energías
+        </p>
+
+        <div class="contenedor-cajas">
+            <!-- Caja 1 -->
+            <div class="caja-servicio">
+                <img src="/images/circuito1.png" alt="Camara a vapor" />
+                <h4>Cámara a vapor</h4>
+                <p>
+                    Disfruta del poder del vapor en nuestro sauna húmedo con hojas frescas de eucalipto. Su efecto
+                    expectorante alivia las vías respiratorias y fortalece tus defensas, brindándote una experiencia
+                    relajante y revitalizante.
+                </p>
+                <ul>
+                    <li><i class="fas fa-clock"></i> 30 min - S/ 70</li>
+                    <li><i class="fas fa-clock"></i> 60 min - S/ 130</li>
+                </ul>
+                <a asp-controller="Cita" asp-action="Index" asp-route-servicio="camara-vapor" class="boton-servicio">Quiero este circuito</a>
+            </div>
+
+            <!-- Caja 2 -->
+            <div class="caja-servicio">
+                <img src="/images/circuito2.png" alt="Camara seca" />
+                <h4>Cámara seca</h4>
+                <p>
+                    Elimina toxinas, mejora la circulación y relaja profundamente los músculos cansados. Una sesión de
+                    sauna ayuda a revitalizar la piel y mejorar significativamente la calidad del sueño.
+                </p>
+                <ul>
+                    <li><i class="fas fa-clock"></i> 30 min - S/ 70</li>
+                    <li><i class="fas fa-clock"></i> 60 min - S/ 130</li>
+                </ul>
+                <a asp-controller="Cita" asp-action="Index" asp-route-servicio="camara-seca" class="boton-servicio">Quiero este circuito</a>
+            </div>
+
+            <!-- Caja 3 -->
+            <div class="caja-servicio">
+                <img src="/images/circuito3.png" alt="Tina de hidromasajes" />
+                <h4>Tina de hidromasajes</h4>
+                <p>
+                    Sumérgete en nuestra tina de hidromasajes y vive una experiencia única de relajación y bienestar
+                    total. La presión terapéutica del agua activa la circulación sanguínea, alivia dolores musculares y
+                    reduce el estrés, ayudándote a recuperar energías y equilibrio corporal.
+
+                </p>
+                <ul>
+                    <li><i class="fas fa-clock"></i> 30 min - S/ 80</li>
+                    <li><i class="fas fa-clock"></i> 60 min - S/ 150</li>
+                </ul>
+                <a asp-controller="Cita" asp-action="Index" asp-route-servicio="tina-hidromasaje" class="boton-servicio">Quiero este circuito</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="contenedor-footer">
+            <div class="footer-col info-empresa">
+                <div class="sublogo">
+                    <img src="images/lfond.png" alt="Logo" />
+                </div>
+                <h3>
+                    Somos una empresa inclusiva de masajistas profesionales orientados a
+                    brindar un excelente servicio de masajes terapéuticos.
+                </h3>
+                <p><strong>Horario de atención:</strong></p>
+                <p>Lun. a sáb. de 7:00 am a 21:00 pm</p>
+                <p>Dom. y feriados: 9:00 am a 19:00 pm</p>
+
+                <div class="redes-sociales">
+                    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col contacto-mapa">
+                <p>
+                    <strong>Teléfonos:</strong><br />Reservas 01 3090095 – 999 985 050 |
+                    Miraflores
+                </p>
+                <p>
+                    <strong>Dirección:</strong><br />📍Av. Angamos Oeste 840 - Miraflores
+                </p>
+                <p><strong>E-mail:</strong><br />m.pazspa@gmail.com</p>
+                <div class="mapa">
+                    <img src="images/mapa.png" alt="Mapa ubicación" />
+                </div>
+            </div>
+
+            <div class="footer-col form-contacto">
+                <h3>¿Tienes una consulta? Escríbenos</h3>
+                <form>
+                    <input type="text" placeholder="Nombre" required />
+                    <input type="email" placeholder="Correo" required />
+                    <textarea placeholder="Escribe tu mensaje..." required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

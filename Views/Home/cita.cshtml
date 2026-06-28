@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+@model Spa.Models.Cita
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>Cita - Manos de Paz</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="/images/logo.jpg" alt="Manos de Paz">
+        </div>
+            <nav>
+            <a asp-controller="Home" asp-action="Index">Inicio</a>
+            <a asp-controller="Nosotros" asp-action="Index">Nosotros</a>
+            <a asp-controller="Servicios" asp-action="Index">Servicios</a>
+            <a asp-controller="Promociones" asp-action="Index" class="activo">Promociones</a>
+            <a asp-controller="Cita" asp-action="Index" class="boton activo">Agenda tu cita</a>
+        </nav>
+    </header>
+    <main>
+        <section class="contacto-cita">
+            <h1 class="titulo">AGENDA TU CITA</h1>
+
+            <div class="cita-container">
+                <div class="cita-imagen">
+                    <img src="/images/cita.png" alt="Mujer relajándose en spa">
+                </div>
+
+                <div class="cita-formulario">
+                    <h2>SEPARA TU CITA</h2>
+
+                    <form asp-action="Registrar"
+                          method="post"
+                          id="formCita"
+                          class="form-cita">
+                        <!-- Campo DNI solo en su propia fila -->
+                        <div class="form-group">
+                            <label for="dni">DNI</label>
+                            <input type="text" id="dni" name="dni" maxlength="8" pattern="\d{8}" required>
+                        </div>
+
+                        <!-- Nombre y Apellido en una misma fila -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="apellido">Apellido</label>
+                                <input type="text" id="apellido" name="apellido" required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="fecha">Fecha</label>
+                            <input type="date" id="fecha" name="fecha" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hora">Hora</label>
+                            <input type="time" id="hora" name="hora" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="servicio">Servicio</label>
+                            <select id="servicio" name="servicio" required>
+                                <option value="">Tipo Servicio</option>
+                                <option value="masaje-relajante">Masaje Relajante</option>
+                                <option value="masaje-piedras-calientes">Masaje de piedras calientes</option>
+                                <option value="masaje-descontracturante">Masaje descontracturante</option>
+                                <option value="facial-express">Facial express</option>
+                                <option value="facial-profundo">Facial profundo</option>
+                                <option value="facial-rejuvenecedor">Facial rejuvenecedor</option>
+                                <option value="camara-vapor">Cámara a vapor</option>
+                                <option value="camara-seca">Cámara seca</option>
+                                <option value="tina-hidromasaje">Tina de hidromasajes</option>
+                                <option value="promo-mes">Promoción del mes</option>
+                                <option value="promo-cumple">Promoción de cumpleaños</option>
+                                <option value="promo-ritual-relax">Promoción ritual clásico</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="duracion">Duración</label>
+                            <select id="duracion" name="duracion" required>
+                                <option value="">Selecciona una duración</option>
+                            </select>
+                        </div>
+                        @Html.AntiForgeryToken()
+                        <!-- Después de la selección de duración -->
+                        <div id="campoPersonas" style="display:none;">
+                            <label for="personas">¿Cuántas personas?</label>
+                            <input type="number" id="personas" name="personas" min="1" value="1" />
+                        </div>
+
+                        <p id="precioFinal" style="font-weight: bold; margin-top: 10px;"></p>
+                            <input type="hidden" id="precioInput" name="Precio" value="0" />
+
+
+                        <button type="submit" class="btn-agendar">Agendar</button>
+                    </form>
+                </div>
+
+                <div class="decoracion-floral">
+                    <!-- Decoración floral se agregará con CSS -->
+                </div>
+            </div>
+        </section>
+        <!-- Modal de confirmación de cita -->
+        <div id="modalCita" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close" id="cerrarModal">&times;</span>
+                <h2>Tu cita ha sido registrada</h2>
+                <p id="resumenCita"></p>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="contenedor-footer">
+            <div class="footer-col info-empresa">
+                <div class="sublogo">
+                    <img src="/images/lfond.png" alt="Logo" />
+                </div>
+                <h3>
+                    Somos una empresa inclusiva de masajistas profesionales orientados a
+                    brindar un excelente servicio de masajes terapéuticos.
+                </h3>
+                <p><strong>Horario de atención:</strong></p>
+                <p>Lun. a sáb. de 7:00 am a 21:00 pm</p>
+                <p>Dom. y feriados: 9:00 am a 19:00 pm</p>
+
+                <div class="redes-sociales">
+                    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col contacto-mapa">
+                <p>
+                    <strong>Teléfonos:</strong><br />Reservas 01 3090095 – 999 985 050 |
+                    Miraflores
+                </p>
+                <p>
+                    <strong>Dirección:</strong><br />📍Av. Angamos Oeste 840 - Miraflores
+                </p>
+                <p><strong>E-mail:</strong><br />m.pazspa@gmail.com</p>
+                <div class="mapa">
+                    <img src="/images/mapa.png" alt="Mapa ubicación" />
+                </div>
+            </div>
+
+            <div class="footer-col form-contacto">
+                <h3>¿Tienes una consulta? Escríbenos</h3>
+                <form>
+                    <input type="text" placeholder="Nombre" required />
+                    <input type="email" placeholder="Correo" required />
+                    <textarea placeholder="Escribe tu mensaje..." required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <script src="/js/script.js"></script>
+</body>
+</html>

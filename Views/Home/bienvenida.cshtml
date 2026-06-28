@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bienvenida - Spa Manos De Paz</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="bienvenida-body">
+    <header>
+        <img src="/images/lbienvenida.png" alt="Logo del Spa Manos De Paz" class="logo1" />
+    </header>
+
+    <p class="sr-only" aria-hidden="true">
+        Esta es la página de bienvenida del Spa Manos De Paz. Se le pregunta al usuario si padece discapacidad visual para brindarle una experiencia adecuada.
+    </p>
+
+    <main class="bienvenida-contenedor">
+        <section class="bienvenida-panel" role="dialog" aria-labelledby="titulo-bienvenida" aria-describedby="pregunta-discapacidad">
+            <h1 id="titulo-bienvenida">Bienvenidos al Spa “Manos De Paz”</h1>
+            <p id="pregunta-discapacidad">¿Es usuario o administrador?</p>
+            <div class="botones-bienvenida">
+                <button onclick="window.location.href='/admin.html'" aria-label="Admin">ADMINISTRADOR</button>
+                <button onclick="window.location.href='@Url.Action("Index","Home")'" aria-label="usuario">USUARIO</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/images/logo.jpg" alt="Manos de Paz" />
+        </div>
+        <nav>
+            <a asp-controller="Home" asp-action="Index">Inicio</a>
+            <a asp-controller="Nosotros" asp-action="Index">Nosotros</a>
+            <a asp-controller="Servicios" asp-action="Index">Servicios</a>
+            <a asp-controller="Promociones" asp-action="Index">Promociones</a>
+            <a asp-controller="Cita" asp-action="Index" class="boton">Agenda tu cita</a>
+        </nav>
+    </header>
+
+    <section class="galeria">
+        <img src="/images/ph1.png" alt="" />
+        <img src="/images/ph2.png" alt="" />
+        <img src="/images/ph3.png" alt="" />
+    </section>
+
+    <section class="bienvenida">
+        <div class="contenido-bienvenida">
+            <div class="columna-izquierda">
+                <h2>Renueva tu cuerpo, relaja la mente, eleva tu espíritu</h2>
+                <form class="form-registro">
+                    <h3 class="titulo-form">¡Regístrate!</h3>
+
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required />
+
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required />
+
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="email" id="correo" name="correo" required />
+
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" name="contrasena" required />
+
+                    <button type="submit">Registrarse</button>
+                </form>
+            </div>
+
+            <div class="columna-derecha">
+                <p>
+                    Manos de Paz es el refugio ideal para quienes buscan desconectarse
+                    del estrés diario y reconectar con su bienestar interior. Ofrecemos
+                    masajes, terapias y tratamientos diseñados para brindarte una
+                    experiencia de paz profunda, en un ambiente cálido, armonioso y
+                    lleno de energía positiva.
+                </p>
+                <img src="/images/ph4.png" alt="Relajación y bienestar" />
+            </div>
+        </div>
+    </section>
+
+    <section class="servicios-destacados">
+        <div class="contenido-servicios">
+            <h2>Nuestros Servicios</h2>
+            <p>
+                Vive una experiencia única de bienestar con nuestros servicios exclusivos
+                que revitalizan tu cuerpo, renuevan tu mente y elevan tu energía.
+                ¡Convierte cada visita en un escape hacia la paz y la renovación total!
+            </p>
+        </div>
+        <div class="cards">
+            <div>
+                <img src="/images/ph5.png" alt="Masajes" />
+                <p>Masajes</p>
+            </div>
+            <div>
+                <img src="/images/ph6.png" alt="Faciales" />
+                <p>Tratamientos faciales</p>
+            </div>
+            <div>
+                <img src="/images/ph7.png" alt="Spa" />
+                <p>Circuito de spa</p>
+            </div>
+        </div>
+        <a asp-controller="Servicios" asp-action="Index" class="boton boton-servicios">Ver todos los servicios</a>
+        <a asp-controller="Cita" asp-action="Index" class="boton boton-cita">Agenda tu cita</a>
+    </section>
+
+    <section class="promociones">
+        <div class="izquierda">
+            <h2>Aprovecha las promociones del mes</h2>
+            <p>
+                Conéctate contigo mismo y disfruta de un merecido descanso. Explora
+                nuestras promociones exclusivas y sumérgete en un ambiente relajante
+                que revitalizará tu cuerpo y mente. ¡Haz clic y comienza tu viaje
+                hacia el bienestar!
+            </p>
+            <a asp-controller="Promociones" asp-action="Index" class="boton">Ver promociones</a>
+        </div>
+
+        <div class="derecha">
+            <img src="/images/ph8.jpg" alt="Promoción masaje" />
+            <h3>MASAJES PARA DOS PERSONAS</h3>
+            <p class="precio">S/. 160</p>
+            <p>
+                Vivan un momento único de conexión y bienestar. Nuestra promoción para
+                dos personas incluye un masaje relajante de 60 minutos, sesión de
+                aromaterapia, acceso a jacuzzi privado y una copa de vino para cada
+                uno.
+            </p>
+            <a asp-controller="Cita" asp-action="Index" asp-route-servicio="promo-mes" class="boton">Quiero esta promoción</a>
+        </div>
+    </section>
+
+    <section class="testimonios">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="clientes">
+            <div class="cliente">
+                <img src="/images/p1.png" alt="Foto Valeria Velez" />
+                <p class="testimonio">
+                    "Desde el primer momento en que llegué, supe que había tomado la
+                    mejor decisión. La calidez del personal, la música suave y el aroma
+                    relajante me hicieron desconectar del mundo exterior y conectar
+                    conmigo misma. Cada detalle está pensado para que uno se sienta
+                    especial."
+                </p>
+                <p class="nombre">- Valeria Velez</p>
+            </div>
+            <div class="cliente">
+                <img src="/images/p2.png" alt="Foto Carla Fernández" />
+                <p class="testimonio">
+                    El masaje fue simplemente espectacular. Sentí cómo cada movimiento
+                    liberaba tensiones que ni siquiera sabía que tenía. La combinación
+                    de técnicas, aromas y música me llevó a un estado de relajación
+                    profunda que pocas veces he experimentado. Fue más que un masaje,
+                    fue un renacimiento."
+                </p>
+                <p class="nombre">- Angie Manrique</p>
+            </div>
+            <div class="cliente">
+                <img src="/images/p3.png" alt="Foto Gabriela Manso" />
+                <p class="testimonio">
+                    Finalizar el día en el jacuzzi privado, brindando con una copa de
+                    vino, fue simplemente mágico. Fue un regalo que nos hicimos y que
+                    definitivamente repetiremos. ¡Gracias por crear un espacio tan
+                    especial donde pudimos recargar energías y renovar nuestro amor!""
+                </p>
+                <p class="nombre">- Carlos y Maria</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="contenedor-footer">
+            <div class="footer-col info-empresa">
+                <div class="sublogo">
+                    <img src="/images/lfond.png" alt="Logo" />
+                </div>
+                <h3>
+                    Somos una empresa inclusiva de masajistas profesionales orientados a
+                    brindar un excelente servicio de masajes terapéuticos.
+                </h3>
+                <p><strong>Horario de atención:</strong></p>
+                <p>Lun. a sáb. de 7:00 am a 21:00 pm</p>
+                <p>Dom. y feriados: 9:00 am a 19:00 pm</p>
+
+                <div class="redes-sociales">
+                    <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col contacto-mapa">
+                <p>
+                    <strong>Teléfonos:</strong><br />Reservas 01 3090095 – 999 985 050 |
+                    Miraflores
+                </p>
+                <p>
+                    <strong>Dirección:</strong><br />📍Av. Angamos Oeste 840 - Miraflores
+                </p>
+                <p><strong>E-mail:</strong><br />m.pazspa@gmail.com</p>
+                <div class="mapa">
+                    <img src="/images/mapa.png" alt="Mapa ubicación" />
+                </div>
+            </div>
+
+            <div class="footer-col form-contacto">
+                <h3>¿Tienes una consulta? Escríbenos</h3>
+                <form>
+                    <input type="text" placeholder="Nombre" required />
+                    <input type="email" placeholder="Correo" required />
+                    <textarea placeholder="Escribe tu mensaje..." required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
