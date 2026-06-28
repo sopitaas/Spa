@@ -12,65 +12,69 @@ build_property.EntryPointFilePath =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Spa
 build_property.RootNamespace = Spa
-build_property.ProjectDir = C:\Users\User\Documents\spa\Spa\Spa\
+build_property.ProjectDir = C:\Users\Pc\Downloads\Spa\Spa\Spa\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 10.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\User\Documents\spa\Spa\Spa
+build_property.MSBuildProjectDirectory = C:\Users\Pc\Downloads\Spa\Spa\Spa
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/User/Documents/spa/Spa/Spa/Views/Home/admin.cshtml]
+[C:/Users/Pc/Downloads/Spa/Spa/Spa/Views/Cliente/Registro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxSZWdpc3Ryby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pc/Downloads/Spa/Spa/Spa/Views/Home/admin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxhZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/spa/Spa/Spa/Views/Home/bienvenida.cshtml]
+[C:/Users/Pc/Downloads/Spa/Spa/Spa/Views/Home/bienvenida.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxiaWVudmVuaWRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/spa/Spa/Spa/Views/Home/cita.cshtml]
+[C:/Users/Pc/Downloads/Spa/Spa/Spa/Views/Home/cita.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxjaXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/spa/Spa/Spa/Views/Home/index.cshtml]
+[C:/Users/Pc/Downloads/Spa/Spa/Spa/Views/Home/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/spa/Spa/Spa/Views/Home/nosotros.cshtml]
+[C:/Users/Pc/Downloads/Spa/Spa/Spa/Views/Home/nosotros.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxub3NvdHJvcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/spa/Spa/Spa/Views/Home/Privacy.cshtml]
+[C:/Users/Pc/Downloads/Spa/Spa/Spa/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/spa/Spa/Spa/Views/Home/promociones.cshtml]
+[C:/Users/Pc/Downloads/Spa/Spa/Spa/Views/Home/promociones.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxwcm9tb2Npb25lcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/spa/Spa/Spa/Views/Home/servicios.cshtml]
+[C:/Users/Pc/Downloads/Spa/Spa/Spa/Views/Home/servicios.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxzZXJ2aWNpb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/spa/Spa/Spa/Views/Shared/Error.cshtml]
+[C:/Users/Pc/Downloads/Spa/Spa/Spa/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/spa/Spa/Spa/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Pc/Downloads/Spa/Spa/Spa/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/spa/Spa/Spa/Views/_ViewImports.cshtml]
+[C:/Users/Pc/Downloads/Spa/Spa/Spa/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/spa/Spa/Spa/Views/_ViewStart.cshtml]
+[C:/Users/Pc/Downloads/Spa/Spa/Spa/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/spa/Spa/Spa/Views/Shared/_Layout.cshtml]
+[C:/Users/Pc/Downloads/Spa/Spa/Spa/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-qw2fmce6pa
