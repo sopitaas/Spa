@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Spa.Data;
 using Spa.Models;
 using System.Diagnostics;
 
@@ -7,6 +9,12 @@ namespace Spa.Controllers
     public class HomeController : Controller
     {
         // Redirige a Views/Home/index.cshtml
+        private readonly SpaDbContext _context;
+
+        public HomeController(SpaDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
@@ -27,7 +35,10 @@ namespace Spa.Controllers
         // Redirige a Views/Home/promocinoes.cshtml (Usa el nombre exacto que tiene tu archivo físico)
         public IActionResult Promociones()
         {
-            return View("promociones");
+            var promociones = _context.Promociones
+                                      .Where(p => p.Activa)
+                                      .ToList();
+            return View("promociones", promociones);
         }
 
         // Redirige a Views/Home/servicios.cshtml
